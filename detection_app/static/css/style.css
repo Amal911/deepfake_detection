@@ -1,0 +1,88 @@
+:root{
+ --font_primary: #fff;
+ --font_secondary: #a2a3a7;
+ --font_teritiary: #b2ff00;
+ --primary:#10151d;
+}
+
+
+body{
+    background-color: var(--primary);
+    color: var(--font_primary);
+}
+span{
+    color: var(--font_teritiary);
+}
+.home_img1{
+    border-radius: 30%;
+    mix-blend-mode: difference;
+}
+p{
+    color: var(--font_secondary);
+}
+
+#heading{
+    font-size: 4rem;
+    font-weight: 700;
+}
+
+
+.loader {
+    width: 100px;
+    aspect-ratio: 1;
+    display: grid;
+    border: 4px solid #0000;
+    border-radius: 50%;
+    border-right-color: var(--font_teritiary);
+    animation: l15 1s infinite linear;
+  }
+  .loader::before,
+  .loader::after {    
+    content: "";
+    grid-area: 1/1;
+    margin: 2px;
+    border: inherit;
+    border-radius: 50%;
+    animation: l15 2s infinite;
+  }
+  .loader::after {
+    margin: 8px;
+    animation-duration: 3s;
+  }
+  @keyframes l15{ 
+    100%{transform: rotate(1turn)}
+  }
+
+
+.loader_uploading {
+    width: fit-content;
+    font-weight: bold;
+    font-family: monospace;
+    font-size: 30px;
+    color:#0000;
+    background:linear-gradient(90deg, var(--font_secondary) calc(50% - 0.5ch),var(--font_teritiary) 0 calc(50% + 0.5ch),var(--font_secondary) 0) right/calc(200% + 1ch) 100%;
+    -webkit-background-clip:text;
+            background-clip:text;
+    animation: l8 2s infinite steps(11);
+  }
+  .loader_uploading:before {
+    content:"Uploading..."
+  }
+  @keyframes l8 {to{background-position: left}}
+
+
+.loader_processing {
+    width: fit-content;
+    font-weight: bold;
+    font-family: monospace;
+    font-size: 30px;
+    color:#0000;
+    background:linear-gradient(90deg, var(--font_secondary) calc(50% - 0.5ch),var(--font_teritiary) 0 calc(50% + 0.5ch),var(--font_secondary) 0) right/calc(200% + 1ch) 100%;
+    -webkit-background-clip:text;
+            background-clip:text;
+    animation: l8 2s infinite steps(11);
+  }
+  .loader_processing:before {
+    content:"Processing..."
+  }
+  @keyframes l8 {to{background-position: left}}

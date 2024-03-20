@@ -2,6 +2,7 @@ import os
 from django.core.files.storage import FileSystemStorage
 from deepfake_detection.settings import VIDEO_UPLOAD_PATH
 def handle_uploaded_file(file):
+    # os.remove(VIDEO_UPLOAD_PATH)
     print(file)
     if not os.path.exists(VIDEO_UPLOAD_PATH):
         os.makedirs(VIDEO_UPLOAD_PATH)
@@ -14,13 +15,14 @@ def handle_uploaded_file(file):
     prediction = detectFakeVideo(video_path)
     print(prediction)
     if prediction[0] == 0:
-          output = "FAKE"
+          output = False
     else:
-          output = "REAL"
+          output = True
     confidence = prediction[1]
-    data = {'output': output, 'confidence': round(confidence,3)}
+    data = {'output': output, 'confidence': round(confidence,3),'path':'uploaded_videos/'+file.name}
     print(data)
-    os.remove(video_path)
+    # os.remove(video_path)
+    return data
     
 
 

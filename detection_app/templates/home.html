@@ -1,16 +1,45 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Hello</h1>
-    <form method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{ form.as_p }}  
-        <button type="submit">Upload</button>
-    </form>
-</body>
-</html>
+{% extends "default.html" %} {% load static %} 
+{% block page %}
+<div class="container-fluid ">
+    <div class="d-flex justify-content-around align-items-center " style="height: 90vh;">
+        <div class="text-sart col-5 d-flex flex-column gap-2">
+            <h1 id="heading">DeepFake <span>Detector</span></h1>
+            <div>
+                <p >
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis praesentium obcaecati deserunt eius,
+                     impedit tempore harum quidem esse soluta enim inventore voluptatibus ratione? Officia quidem voluptatibus,
+                      commodi adipisci eum facere.
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis consectetur quas quis illo sit odit, mollitia a repellat pariatur est?
+                </p>
+            </div>
+        </div>
+        
+        <div class="d-flex flex-column justify-content-around align-items-center h-100 col-5" >
+            <div >
+                <img src="{% static 'images/img1.jpg' %}" alt="" class="home_img1" width="350">
+            </div>
+            <div id="input">
+                <form method="post" enctype="multipart/form-data" class="d-flex flex-column justify-content-center align-items-center">
+                    {% csrf_token %}
+                    <!-- {{ form.as_p }}   -->
+                    <div class="form-group mb-3">
+                        <input class="form-control" type="file" name="video" required id="id_video">
+                    </div>
+                    <button class="btn btn-secondary" type="submit" id="upload_btn">Upload</button>
+                </form>
+            </div>
+            <div id="loading">
+                <div class="loader m-auto"></div>
+                <div class="loader_uploading m-auto"></div>
+                <div class="loader_processing"></div>   
+            </div>
+          
+        </div>
+        
+    </div>
+</div>
+<script src="{% static 'jquery-3.7.1.js' %}"></script>
+<script src="{% static 'Javascript/home.js' %}"></script>
+{% endblock %}
+
+
