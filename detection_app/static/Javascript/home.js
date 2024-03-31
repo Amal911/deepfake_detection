@@ -15,3 +15,45 @@ $("#upload_btn").on("click", function(e) {
         }, 3000);
     }
 });
+
+$("#report").on("click", function(e) {
+    e.preventDefault();
+    $("#report_btn").prop("disabled", true);
+        path = $("#video_path").val();
+        name = $("#name").val();
+        pnum = $("#pnum").val();
+        email = $("#email").val();
+        complaint = $("#complaint").val();
+    $.ajax({
+        type: "GET",
+        url: "/result",
+        dataType: 'json',
+        data: {action:'report',path,name,pnum,email,complaint},
+        success:function(result) {
+          console.log(result);
+          Swal.fire({
+            title: "E-Mail Sent Successfully!",
+            icon: "success",
+            toast:true,
+            position:'top-end',
+            timer:5000,
+            timerProgressBar:true,
+            showConfirmButton:false,
+          });
+          $("#report_btn").prop("disabled", false);
+        },
+        error:function(result) {
+          console.log('error');
+          Swal.fire({
+            title: "Failed to sent E-Mail!",
+            icon: "error",
+            toast:true,
+            position:'top-end',
+            timer:5000,
+            timerProgressBar:true,
+            showConfirmButton:false,
+          });
+          $("#report_btn").prop("disabled", false);
+        }
+    });
+});

@@ -1,26 +1,27 @@
 import os
 from django.core.files.storage import FileSystemStorage
 from deepfake_detection.settings import VIDEO_UPLOAD_PATH
+
+import shutil
 def handle_uploaded_file(file):
-    # os.remove(VIDEO_UPLOAD_PATH)
-    print(file)
+    shutil.rmtree(VIDEO_UPLOAD_PATH)
     if not os.path.exists(VIDEO_UPLOAD_PATH):
         os.makedirs(VIDEO_UPLOAD_PATH)
     fs = FileSystemStorage(VIDEO_UPLOAD_PATH) #defaults to   MEDIA_ROOT  
     filename = fs.save(file.name, file)
-    print('saved')
+    # print('saved')
     file_url = fs.url(filename)
     video_path = VIDEO_UPLOAD_PATH +'/'+ file.name
 
     prediction = detectFakeVideo(video_path)
-    print(prediction)
+    # print(prediction)
     if prediction[0] == 0:
           output = False
     else:
           output = True
     confidence = prediction[1]
     data = {'output': output, 'confidence': round(confidence,3),'path':'uploaded_videos/'+file.name}
-    print(data)
+    # print(data)
     # os.remove(video_path)
     return data
     
@@ -259,3 +260,57 @@ def detectFakeVideo(videoPath):
         else:
             print("FAKE")
     return prediction
+
+
+
+
+
+
+
+
+
+
+
+from email.mime.base import MIMEBase
+from email import encoders
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
+import pandas as pd
+import sqlite3
+import smtplib
+
+def mail(data):
+    mail_content = {} 
+    mail_content['subject'] = 'Fake Video'
+    mail_content['text'] = f"Dear Advocate,\n\nThis mail to bring your attention to a concerning matter regarding a fake video that has surfaced online.\n\nComplaint from {data['name']}\n{data['complaint']},\nName: {data['name']}\nPhone Num: {data['pnum']}\nEmail ID: {data['email']}\n\nThank you for your attention to this urgent matter.\nBest regards"
+
+    mail_content['attachment_path'] = "detection_app/static/"+data['path']        
+    send_mail(data['email'],mail_content)
+
+def send_mail(email,mail_content):
+    msg = MIMEMultipart()
+    # msg = MIMEText(f"Dear {name}\n\n Thank you very much for attending the technical interview process.Iam delighted to inform that you are qualified in the technical interview and has been selected for HR interview.\n\nCONGRATULATIONS!\n\nFurther details for HR round will be shared later")
+    msg['Subject'] = mail_content['subject']
+    msg['From'] = 'armchatbot3@gmail.com'
+    msg['To'] = email
+    msg.attach(MIMEText(mail_content['text']))
+    # msg.attach(MIMEText(f"Dear {name}\n\n Thank you very much for attending the technical interview process.Iam delighted to inform that you are qualified in the technical interview and has been selected for HR interview.\n\nCONGRATULATIONS!\n\nFurther details for HR round will be shared later"))
+
+    if mail_content['attachment_path']:
+        part = MIMEBase('application', "octet-stream")
+        part.set_payload(open(mail_content['attachment_path'], "rb").read())
+        encoders.encode_base64(part)
+        part.add_header('Content-Disposition', 'attachment; filename="video.mp4"')
+        msg.attach(part)
+
+        # Send the message using SMTP
+    smtp_server = 'smtp.gmail.com'
+    smtp_port = 587
+    smtp_username = 'armchatbot3@gmail.com'
+    smtp_password = 'vcefmskrqgtcuvjq'
+    smtp_conn = smtplib.SMTP(smtp_server, smtp_port)
+    smtp_conn.starttls()
+    smtp_conn.login(smtp_username, smtp_password)
+    smtp_conn.sendmail(smtp_username, [msg['To']], msg.as_string())
+    smtp_conn.quit()
+

@@ -26,6 +26,14 @@ p{
     font-weight: 700;
 }
 
+.report-btn{
+  background-color: var(--font_teritiary);
+  color: var(--primary);
+}
+
+#modal-body{
+  background-color: var(--primary);
+}
 
 .loader {
     width: 100px;
