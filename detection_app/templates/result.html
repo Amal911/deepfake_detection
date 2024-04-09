@@ -1,7 +1,7 @@
 {% extends "default.html" %} {% load static %} 
 {% block page %}
 
-<!-- <p>{{result}}</p> -->
+
 
 <div class="container-fluid">
     <div class="d-flex justify-content-around align-items-center gap-5" style="height: 90vh;">
@@ -21,17 +21,17 @@
                 {% endif %}
                 <div class="d-flex gap-3">
                     <a href="{% url 'home' %}"><button class="btn btn-secondary">Upload Another</button></a>
-                    <button id="report_btn" class=" btn report-btn" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" >Report</button>
                     <input type="text" class="d-none" value={{result.path}} id="video_path"/>
+                    {% if not result.output%}
+                    <button id="report_btn" class=" btn report-btn" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" >Report</button>
+                    <a href="{% url 'advocates' %}"><button class="btn btn-secondary">Advocate Details</button></a>
+                    {% endif %}
                 </div>
         </div>
     </div>
 </div>
 
-<!-- Button trigger modal -->
-<!-- <button type="button" class="btn btn-primary" >
-    Launch demo modal
-  </button> -->
+
   
   <!-- Modal -->
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

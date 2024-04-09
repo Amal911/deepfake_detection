@@ -1,0 +1,229 @@
+{% extends "default.html" %} {% load static %} 
+{% block page %}
+<div class="container">
+
+    <div id="contacts">
+        <h2><span>Thiruvanathapuram</span></h2>
+    <div class="d-flex gap-3" id="thiruvanathapuram">
+        {% for adv in advocates.thiruvanathapuram %}
+        <div class="card col-2 contact-card">
+            <div class="card-body" >
+                <h5><span>{{adv.name}}</span></h5>
+                    <a href="tel:{{adv.contact}}"><i class="fa-solid fa-phone"></i> {{adv.contact}}</a>
+                    <a href="{{adv.location}}" target="_blank">
+                        <h6><i class="fa-solid fa-location-dot"></i> Location</h6>
+                    </a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <h2><span>Kollam</span></h2>
+    <div class="d-flex gap-3" id="kollam">
+        {% for adv in advocates.kollam %}
+        <div class="card col-2 contact-card">
+            <div class="card-body" >
+                <h5><span>{{adv.name}}</span></h5>
+               
+                    <a href="tel:{{adv.contact}}"><i class="fa-solid fa-phone"></i> {{adv.contact}}</a>
+                    <a href="{{adv.location}}" target="_blank">
+                        <h6><i class="fa-solid fa-location-dot"></i> Location</h6>
+                    </a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <h2><span>Pathanamthitta</span></h2>
+    <div class="d-flex gap-3" id="pathanamthitta">
+        {% for adv in advocates.pathanamthitta %}
+        <div class="card col-2 contact-card">
+            <div class="card-body" >
+                <h5><span>{{adv.name}}</span></h5>
+                    <a href="tel:{{adv.contact}}"><i class="fa-solid fa-phone"></i> {{adv.contact}}</a>
+                    <a href="{{adv.location}}" target="_blank">
+                        <h6><i class="fa-solid fa-location-dot"></i> Location</h6>
+                    </a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <h2><span>Alapuzha</span></h2>
+    <div class="d-flex gap-3" id="alapuzha">
+        {% for adv in advocates.alapuzha %}
+        <div class="card col-2 contact-card">
+            <div class="card-body" >
+                <h5><span>{{adv.name}}</span></h5>
+             
+                    <a href="tel:{{adv.contact}}"><i class="fa-solid fa-phone"></i> {{adv.contact}}</a>
+                    <a href="{{adv.location}}" target="_blank">
+                        <h6><i class="fa-solid fa-location-dot"></i> Location</h6>
+                    </a>
+            
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <h2><span>Kottyam</span></h2>
+    <div class="d-flex gap-3" id="kottyam">
+        {% for adv in advocates.kottyam %}
+        <div class="card col-2 contact-card">
+            <div class="card-body" >
+                <h5><span>{{adv.name}}</span></h5>
+               
+                    <a href="tel:{{adv.contact}}"><i class="fa-solid fa-phone"></i> {{adv.contact}}</a>
+                    <a href="{{adv.location}}" target="_blank">
+                        <h6><i class="fa-solid fa-location-dot"></i> Location</h6>
+                    </a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <h2><span>Ernakulam</span></h2>
+    <div class="d-flex gap-3" id="ernakulam">
+        {% for adv in advocates.ernakulam %}
+        <div class="card col-2 contact-card">
+            <div class="card-body" >
+                <h5><span>{{adv.name}}</span></h5>
+              
+                    <a href="tel:{{adv.contact}}"><i class="fa-solid fa-phone"></i> {{adv.contact}}</a>
+                    <a href="{{adv.location}}" target="_blank">
+                        <h6><i class="fa-solid fa-location-dot"></i> Location</h6>
+                    </a>
+               
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <h2><span>Idukki</span></h2>
+    <div class="d-flex gap-3" id="idukki">
+        {% for adv in advocates.idukki %}
+        <div class="card col-2 contact-card">
+            <div class="card-body" >
+                <h5><span>{{adv.name}}</span></h5>
+               
+                    <a href="tel:{{adv.contact}}"><i class="fa-solid fa-phone"></i> {{adv.contact}}</a>
+                    <a href="{{adv.location}}" target="_blank">
+                        <h6><i class="fa-solid fa-location-dot"></i> Location</h6>
+                    </a>
+                
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <h2><span>Kasaragod</span></h2>
+    <div class="d-flex gap-3" id="kasaragod">
+        {% for adv in advocates.kasaragod %}
+        <div class="card col-2 contact-card">
+            <div class="card-body" >
+                <h5><span>{{adv.name}}</span></h5>
+                
+                    <a href="tel:{{adv.contact}}"><i class="fa-solid fa-phone"></i> {{adv.contact}}</a>
+                    <a href="{{adv.location}}" target="_blank">
+                        <h6><i class="fa-solid fa-location-dot"></i> Location</h6>
+                    </a>
+            
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <h2><span>Kannur</span></h2>
+    <div class="d-flex gap-3" id="kannur">
+        {% for adv in advocates.kannur %}
+        <div class="card col-2 contact-card">
+            <div class="card-body" >
+                <h5><span>{{adv.name}}</span></h5>
+              
+                    <a href="tel:{{adv.contact}}"><i class="fa-solid fa-phone"></i> {{adv.contact}}</a>
+                    <a href="{{adv.location}}" target="_blank">
+                        <h6><i class="fa-solid fa-location-dot"></i> Location</h6>
+                    </a>
+            
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <h2><span>Wayanad</span></h2>
+    <div class="d-flex gap-3" id="wayanad">
+        {% for adv in advocates.wayanad %}
+        <div class="card col-2 contact-card">
+            <div class="card-body" >
+                <h5><span>{{adv.name}}</span></h5>
+             
+                    <a href="tel:{{adv.contact}}"><i class="fa-solid fa-phone"></i> {{adv.contact}}</a>
+                    <a href="{{adv.location}}" target="_blank">
+                        <h6><i class="fa-solid fa-location-dot"></i> Location</h6>
+                    </a>
+               
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <h2><span>Kozhikode</span></h2>
+    <div class="d-flex gap-3" id="kozhikode">
+        {% for adv in advocates.kozhikode %}
+        <div class="card col-2 contact-card">
+            <div class="card-body" >
+                <h5><span>{{adv.name}}</span></h5>
+             
+                    <a href="tel:{{adv.contact}}"><i class="fa-solid fa-phone"></i> {{adv.contact}}</a>
+                    <a href="{{adv.location}}" target="_blank">
+                        <h6><i class="fa-solid fa-location-dot"></i> Location</h6>
+                    </a>
+              
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <h2><span>Malappuram</span></h2>
+    <div class="d-flex gap-3" id="malappuram">
+        {% for adv in advocates.malappuram %}
+        <div class="card col-2 contact-card">
+            <div class="card-body" >
+                <h5><span>{{adv.name}}</span></h5>
+             
+                    <a href="tel:{{adv.contact}}"><i class="fa-solid fa-phone"></i> {{adv.contact}}</a>
+                    <a href="{{adv.location}}" target="_blank">
+                        <h6><i class="fa-solid fa-location-dot"></i> Location</h6>
+                    </a>
+              
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <h2><span>Palakkad</span></h2>
+    <div class="d-flex gap-3" id="">
+        {% for adv in advocates.palakkad %}
+        <div class="card col-2 contact-card">
+            <div class="card-body" >
+                <h5><span>{{adv.name}}</span></h5>
+             
+                    <a href="tel:{{adv.contact}}"><i class="fa-solid fa-phone"></i> {{adv.contact}}</a>
+                    <a href="{{adv.location}}" target="_blank">
+                        <h6><i class="fa-solid fa-location-dot"></i> Location</h6>
+                    </a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <h2><span>Thrissur</span></h2>
+    <div class="d-flex gap-3" id="thrissur">
+        {% for adv in advocates.thrissur %}
+        <div class="card col-2 contact-card">
+            <div class="card-body" >
+                <h5><span>{{adv.name}}</span></h5>
+                
+                    <a href="tel:{{adv.contact}}"><i class="fa-solid fa-phone"></i> {{adv.contact}}</a>
+                    <a href="{{adv.location}}" target="_blank">
+                        <h6><i class="fa-solid fa-location-dot"></i> Location</h6>
+                    </a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+</div>
+
+
+
+<script src="{% static 'jquery-3.7.1.js' %}"></script>
+<script src="{% static 'Javascript/home.js' %}"></script>
+{% endblock %}

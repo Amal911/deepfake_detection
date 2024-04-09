@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect,JsonResponse
 from .forms import UploadFileForm
-
+from .data import advocates as adv,districts
 from detection_app.utils import handle_uploaded_file, mail
 # Create your views here.
 
@@ -35,4 +35,7 @@ def result(request):
         mail(data)
         return JsonResponse({'success':True})
     return render(request,'result.html')
+
+def advocates(request):
+    return render(request,'advocates.html',{'advocates':adv,'districts':districts})
 

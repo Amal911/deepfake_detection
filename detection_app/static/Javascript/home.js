@@ -1,5 +1,8 @@
 $("#loading").hide()
 
+
+
+
 $("#upload_btn").on("click", function(e) {
     if($("#id_video").val()){
         // e.preventDefault();
@@ -57,3 +60,9 @@ $("#report").on("click", function(e) {
         }
     });
 });
+
+$('#districts').change(()=>{
+  var district = $("#districts").val();
+  console.log(district);
+
+})

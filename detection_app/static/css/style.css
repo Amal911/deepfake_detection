@@ -3,6 +3,7 @@
  --font_secondary: #a2a3a7;
  --font_teritiary: #b2ff00;
  --primary:#10151d;
+ --secondary:#1f2838;
 }
 
 
@@ -33,6 +34,13 @@ p{
 
 #modal-body{
   background-color: var(--primary);
+}
+
+.contact-card{
+  background-color: var(--secondary);
+}
+a {
+  all: unset;
 }
 
 .loader {
